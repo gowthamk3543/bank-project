@@ -1,34 +1,34 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: bankapp-eta-deploy
+  name: gowtham-bankapp
   labels:
-    app: bankapp-eta-app
+    app: gowtham-bankapp
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: bankapp-eta-app
+      app: gowtham-bankapp
   template:
     metadata:
       labels:
-        app: bankapp-eta-app
+        app: gowtham-bankapp
     spec:
       containers:
-      - name: bankapp-eta-container
-        image: loksaieta/bankapp-eta-app
+      - name: gowtham-bankapp-container
+        image: gowthamk3543/bankapp
         ports:
         - containerPort: 8082
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: bankapp-eta-np-service
+  name: gowtham-bankapp-service
   labels:
-    app: bankapp-eta-app
+    app: gowtham-bankapp
 spec:
   selector:
-    app: bankapp-eta-app
+    app: gowtham-bankapp
 
   type: NodePort
   ports:
